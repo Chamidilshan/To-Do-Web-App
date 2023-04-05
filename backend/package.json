@@ -1,0 +1,19 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "A flutter web app built with node.js",
+  "main": "backend/app.js", 
+  "scripts": {
+    "start": "concurrently \"node app.js\" \"cd .. && cd frontend && flutter run -d chrome\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chamika Dilshan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
