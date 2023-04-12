@@ -2,7 +2,8 @@
 This is a simple Todo App project built using Flutter and Node.js. The app allows users to add and manage tasks in a simple and intuitive way.
 
 ## Demo
-![todoAppDemo](https://user-images.githubusercontent.com/89196733/231526339-0707d47a-b73f-4511-bec6-fd30d47d12da.gif)
+![todoAppDemo](https://user-images.githubusercontent.com/89196733/231526959-e689fc9c-4e7c-4f6f-a94f-c42278cf8a20.gif)
+
 
 ## Getting Started
 To get started with this project, you will need to:
