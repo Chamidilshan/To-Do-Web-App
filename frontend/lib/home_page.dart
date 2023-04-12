@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-
   List<Task>? tasks;
   var isLoaded = false;
 
@@ -35,46 +34,89 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'To Do App',
-        ),
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.grey[200],
       body: Visibility(
         visible: isLoaded,
-        child: Center(
-          child: Column(
-            children: [
-              Text('Manage your work'),
-              SizedBox(
-                height: 20.0,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 30.0),
+            Text(
+              'Manage Your Tasks',
+              style: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[900],
               ),
-              Text('Your tasks'),
-              SizedBox(
-                height: 20.0,
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              'Create a list of tasks, set deadlines or reminders, and mark tasks as completed when finished.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.grey[600],
               ),
-              ListView.builder(
+            ),
+            SizedBox(height: 30.0),
+            Text(
+              'Your Tasks:',
+              style: TextStyle(
+                fontSize: 24.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Expanded(
+              child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: tasks?.length,
                   itemBuilder: (context, index){
-                    return Text(tasks![index].text);
+                    return Card(
+                      margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                      child: ListTile(
+                        title: Text(
+                          tasks![index].text,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // trailing: Checkbox(
+                        //   value: tasks![index].completed,
+                        //   onChanged: (bool? value) {},
+                        // ),
+                      ),
+                    );
                   }),
-              SizedBox(
-                height: 20.0,
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              TextButton(onPressed: () {
-                Navigator.push(context,  MaterialPageRoute(builder: (context) => NewTaskPage()));
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NewTaskPage()));
               },
-                  child: Text('Add a task')
-              )
-            ],
-          ),
+              child: Text(
+                'Add a Task',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue[900],
+                padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 15.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+            ),
+            SizedBox(height: 30.0),
+          ],
         ),
-        replacement: CircularProgressIndicator(),
+        replacement: Center(child: CircularProgressIndicator()),
       ),
     );
   }
