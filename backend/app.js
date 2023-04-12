@@ -20,7 +20,7 @@ let tasks = [
 
 app.get('/api/tasks', (req, res) => {
   let today = new Date();
-  console.log(today); 
+  console.log('used at ' + today);  
   res.json(tasks);
 });
 
